@@ -1,3 +1,3 @@
 Sorting started...
 Sorting completed.
-Time taken: 68680 miliseconds
+Time taken: 64139 miliseconds

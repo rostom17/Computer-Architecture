@@ -1,14 +1,15 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>      // For rand()
-#include <ctime>        // For time()
-#include <chrono>       // For timing
+#include <cstdlib> // For rand()
+#include <ctime>   // For time()
+#include <chrono>  // For timing
 
 using namespace std;
 using namespace std::chrono;
 
 // Merge two subarrays
-void merge(vector<int>& arr, int left, int mid, int right) {
+void merge(vector<int> &arr, int left, int mid, int right)
+{
     int leftSize = mid - left + 1;
     int rightSize = right - mid;
 
@@ -22,21 +23,29 @@ void merge(vector<int>& arr, int left, int mid, int right) {
 
     int i = 0, j = 0, k = left;
 
-    while (i < leftSize && j < rightSize) {
-        if (L[i] <= R[j]) {
+    while (i < leftSize && j < rightSize)
+    {
+        if (L[i] <= R[j])
+        {
             arr[k++] = L[i++];
-        } else {
+        }
+        else
+        {
             arr[k++] = R[j++];
         }
     }
 
-    while (i < leftSize) arr[k++] = L[i++];
-    while (j < rightSize) arr[k++] = R[j++];
+    while (i < leftSize)
+        arr[k++] = L[i++];
+    while (j < rightSize)
+        arr[k++] = R[j++];
 }
 
 // Recursive Merge Sort
-void mergeSort(vector<int>& arr, int left, int right) {
-    if (left < right) {
+void mergeSort(vector<int> &arr, int left, int right)
+{
+    if (left < right)
+    {
         int mid = left + (right - left) / 2;
 
         mergeSort(arr, left, mid);
@@ -45,13 +54,15 @@ void mergeSort(vector<int>& arr, int left, int right) {
     }
 }
 
-int main() {
+int main()
+{
     const int SIZE = 100000000; // 100 million
     vector<int> arr(SIZE);
 
     // Seed and fill array with random numbers
     srand(time(nullptr));
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; ++i)
+    {
         arr[i] = rand();
     }
 

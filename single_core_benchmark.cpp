@@ -1,19 +1,22 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>      // For rand()
-#include <ctime>        // For time()
-#include <chrono>       // For timing
+#include <cstdlib> // For rand()
+#include <ctime>   // For time()
+#include <chrono>  // For timing
 
 using namespace std;
 using namespace std::chrono;
 
 // Quick Sort Partition
-int partition(vector<int>& arr, int low, int high) {
+int partition(vector<int> &arr, int low, int high)
+{
     int pivot = arr[high]; // pivot
     int i = low - 1;       // Index of smaller element
 
-    for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
+    for (int j = low; j < high; j++)
+    {
+        if (arr[j] < pivot)
+        {
             i++;
             swap(arr[i], arr[j]);
         }
@@ -23,8 +26,10 @@ int partition(vector<int>& arr, int low, int high) {
 }
 
 // Quick Sort Function
-void quickSort(vector<int>& arr, int low, int high) {
-    if (low < high) {
+void quickSort(vector<int> &arr, int low, int high)
+{
+    if (low < high)
+    {
         int pi = partition(arr, low, high);
 
         quickSort(arr, low, pi - 1);
@@ -32,13 +37,15 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-int main() {
-    const int SIZE = 100000000; //100 million
+int main()
+{
+    const int SIZE = 100000000; // 100 million
     vector<int> arr(SIZE);
 
     // Generate random integers
     srand(time(nullptr));
-    for (int i = 0; i < SIZE; ++i) {
+    for (int i = 0; i < SIZE; ++i)
+    {
         arr[i] = rand();
     }
 
